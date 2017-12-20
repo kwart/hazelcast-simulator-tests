@@ -1,0 +1,40 @@
+<hazelcast xsi:schemaLocation="http://www.hazelcast.com/schema/config hazelcast-config-3.9.xsd"
+           xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <group>
+        <name>workers</name>
+        <password>workers</password>
+    </group>
+
+    <!--LITE_MEMBER_CONFIG-->
+
+    <network>
+        <port port-count="200" auto-increment="true">5701</port>
+        <join>
+            <multicast enabled="false"/>
+            <tcp-ip enabled="true">
+                <!--MEMBERS-->
+            </tcp-ip>
+        </join>
+
+        <ssl enabled="true">
+            <properties>
+                <property name="keyStore">upload/server.keystore</property>
+                <property name="keyStorePassword">123456</property>
+                <property name="trustStore">upload/server.truststore</property>
+                <property name="trustStorePassword">123456</property>
+                <property name="mutualAuthentication">REQUIRED</property>
+            </properties>
+        </ssl>
+    </network>
+
+    <properties>
+        <property name="hazelcast.phone.home.enabled">false</property>
+    </properties>
+
+    <!--LICENSE-KEY-->
+
+    <!--MANAGEMENT_CENTER_CONFIG-->
+</hazelcast>
+
